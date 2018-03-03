@@ -15,6 +15,7 @@ set encoding=utf-8
 set expandtab
 set tabstop=4
 set mouse=a
+set autoread
 " Show trailing whitespaces
 set showbreak=>\ \ \
 
