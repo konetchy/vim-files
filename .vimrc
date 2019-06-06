@@ -1,4 +1,5 @@
 syntax on
+au BufRead,BufNewFile *.twig set filetype=jinja
 
 set directory=$HOME/.vim/swapfiles//
 set backupdir=$HOME/.vim/backups//
@@ -18,10 +19,11 @@ set mouse=a
 set autoread
 " Show trailing whitespaces
 set showbreak=>\ \ \
+set pastetoggle=<F2>
 
 " Automatically remove trailing whitespace from php. js, html, twig, python,
 " css, json, yml files
-autocmd FileType c,cpp,php,html,twig,js,json,yml,python autocmd BufWritePre * %s/\s\+$//e
+autocmd FileType c,cpp,php,html,twig,js,json,yml,python,kt autocmd BufWritePre * %s/\s\+$//e
 
 filetype off 
 filetype plugin indent on
@@ -42,9 +44,18 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'flazz/vim-colorschemes'
+Bundle "lepture/vim-jinja"
+Plugin 'sheerun/vim-polyglot'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()  
 "-------------- PLUGINS END --------------------
+
+
+"-------------- SET FILETYPES --------------------
+autocmd BufNewFile,BufRead *.kt setfiletype kotlin
+autocmd BufNewFile,BufRead *.kts setfiletype kotlin
+
 filetype plugin indent on
 
 "----- GENERAL SETTINGS-------
